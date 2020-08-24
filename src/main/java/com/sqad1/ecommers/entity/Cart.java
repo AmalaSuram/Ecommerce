@@ -10,7 +10,7 @@ public class Cart {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer cartId;
-	private String productId;
+	private Integer productId;
 	private Double productPrice;
 	private Integer quantity;
 	private Integer paymentId;
@@ -25,11 +25,12 @@ public class Cart {
 		this.cartId = cartId;
 	}
 
-	public String getProductId() {
+	
+	public Integer getProductId() {
 		return productId;
 	}
 
-	public void setProductId(String productId) {
+	public void setProductId(Integer productId) {
 		this.productId = productId;
 	}
 

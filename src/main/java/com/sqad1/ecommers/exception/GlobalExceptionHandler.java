@@ -45,4 +45,19 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
 	
 	
+	/**
+	 * to handle product Not found exception
+	 * 
+	 * @param ex
+	 * @param request
+	 * @return
+	 */
+	@ExceptionHandler(ProductNotFountException.class)
+	public ResponseEntity<Object> productNotFountException(ProductNotFountException ex, WebRequest request) {
+		Map<String, Object> body = new LinkedHashMap<>();
+		///body.put(AppConstant.STATUS_CODE, AppConstant.PR);
+		body.put(AppConstant.STATUS_MESSAGE, AppConstant.PRODUCT_NOT_FOUND_MESSAGE);
+		return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
+	}
+	
 }

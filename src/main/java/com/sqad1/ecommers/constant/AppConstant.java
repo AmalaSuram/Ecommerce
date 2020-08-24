@@ -43,6 +43,7 @@ public class AppConstant {
 	public static final String PRODUCT_NOT_FOUND_MESSAGE = "This Product is not available";
 
 	public static final Integer SUCCESS_STATUS_CODE = 200;
-
+	
+	public static final String PRODUCT_ADD_SUCCESS = "Product added suucessfully in cart" ;
 
 }
