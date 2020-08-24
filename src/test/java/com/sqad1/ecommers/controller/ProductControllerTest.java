@@ -16,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 
 import com.sqad1.ecommers.dto.ProductDto;
 import com.sqad1.ecommers.dto.ProductSearchDto;
+import com.sqad1.ecommers.exception.ProductNotFoundException;
 import com.sqad1.ecommers.service.ProductService;
 
 @RunWith(MockitoJUnitRunner.Silent.class)
@@ -39,7 +40,7 @@ public class ProductControllerTest {
 	}
 	
 	@Test
-	public void testsearchProduct() {
+	public void testsearchProduct() throws ProductNotFoundException {
 		Mockito.when(productService.searchProduct("dove")).thenReturn(ProductList);
 		
 		ResponseEntity<ProductSearchDto> searchProduct = productController.searchProduct("dove");
