@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sqad1.ecommers.constant.AppConstant;
 import com.sqad1.ecommers.dto.ProductDto;
 import com.sqad1.ecommers.dto.ProductSearchDto;
+import com.sqad1.ecommers.exception.ProductNotFoundException;
 import com.sqad1.ecommers.service.ProductService;
 
 @RestController
@@ -23,7 +24,7 @@ public class ProductController {
 	ProductService productService;
 	
 	@GetMapping("/searchproduct")
-	public ResponseEntity<ProductSearchDto> searchProduct(@RequestParam String productName) {
+	public ResponseEntity<ProductSearchDto> searchProduct(@RequestParam String productName) throws ProductNotFoundException {
 		//log.info("Starting the  product  based on productServiceName...");
 		 List<ProductDto> searchProduct = productService.searchProduct(productName);
 		 ProductSearchDto productSearchDto=new ProductSearchDto();

@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 
 import com.sqad1.ecommers.dto.ProductDto;
 import com.sqad1.ecommers.entity.Product;
+import com.sqad1.ecommers.exception.ProductNotFoundException;
 import com.sqad1.ecommers.repository.ProductRepository;
-import com.sqadfour.storereview.exception.ProductNotFoundException;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -18,7 +18,7 @@ public class ProductServiceImpl implements ProductService {
 	ProductRepository productRepository;
 
 	@Override
-	public List<ProductDto> searchProduct(String productName) {
+	public List<ProductDto> searchProduct(String productName) throws ProductNotFoundException {
 		List<Product> productList = productRepository.findByProductNameContainingIgnoreCase(productName);
 		if(productList.isEmpty()) {
 			throw new ProductNotFoundException(productName);
